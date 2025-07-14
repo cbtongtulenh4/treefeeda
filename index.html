@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trafee - Conversions Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span>Trafee</span>
+                <button class="collapse-btn">
+                    <i class="fas fa-angle-left"></i>
+                </button>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-link"></i>
+                    <span>Smartlinks</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-gift"></i>
+                    <span>Offers</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Conversions</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-wallet"></i>
+                    <span>Balance</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-globe"></i>
+                    <span>Domains</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span>News</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-life-ring"></i>
+                    <span>Support</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar">A</div>
+                    <span>AI manager</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Add toggle button for collapsed sidebar -->
+        <button class="sidebar-toggle" id="sidebar-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <span class="balance">Balance: $64.70</span>
+                    <div class="language-selector">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyNCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjE4IiBmaWxsPSIjMDEyMTY5Ii8+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZGRkZGIi8+CjxyZWN0IHk9IjEyIiB3aWR0aD0iMjQiIGhlaWdodD0iNiIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4K" alt="UK Flag">
+                    </div>
+                    <div class="user-profile" id="user-profile">
+                        <div class="user-avatar">A</div>
+                        <span>otir229</span>
+                        <i class="fas fa-chevron-down"></i>
+                        
+                        <!-- Dropdown Menu -->
+                        <div class="profile-dropdown" id="profile-dropdown">
+                            <div class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                <span>Profile Settings</span>
+                            </div>
+                            <div class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Account Settings</span>
+                            </div>
+                            <div class="dropdown-item">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-item logout-item" id="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>Conversions</h1>
+                    <div class="page-actions">
+                        <div class="date-range">
+                            <input type="date" value="2025-06-06" id="start-date">
+                            <span>—</span>
+                            <input type="date" value="2025-07-05" id="end-date">
+                        </div>
+                        <button class="refresh-btn">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                        <button class="search-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                            Search
+                        </button>
+                    </div>
+                </div>
+
+                
+
+                <!-- Data Table -->
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date <i class="fas fa-sort"></i></th>
+                                <th>Source</th>
+                                <th>Goal</th>
+                                <th>Click ID</th>
+                                <th>Ext click ID <i class="fas fa-sort"></i></th>
+                                <th>Subsource <i class="fas fa-sort"></i></th>
+                                <th>Device</th>
+                                <th>Country</th>
+                                <th>Amount <i class="fas fa-sort"></i></th>
+                                <th>Type</th>
+                                <th>Info</th>
+                            </tr>
+                        </thead>
+                        <tbody id="conversions-table">
+                            <!-- Table rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination-container">
+                    <div class="pagination-info">
+                        <span id="pagination-info">Showing 1-10 of 50 entries</span>
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" id="prev-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Previous
+                        </button>
+                        <div class="pagination-numbers" id="pagination-numbers">
+                            <!-- Page numbers will be generated by JavaScript -->
+                        </div>
+                        <button class="pagination-btn" id="next-btn">
+                            Next
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="pagination-size">
+                        <label for="page-size">Show:</label>
+                        <select id="page-size">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        <span>entries</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="conversion_script.js"></script>
+</body>
+</html>

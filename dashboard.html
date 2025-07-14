@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trafee - Conversions Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span>Trafee</span>
+                <button class="collapse-btn">
+                    <i class="fas fa-angle-left"></i>
+                </button>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-link"></i>
+                    <span>Smartlinks</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-gift"></i>
+                    <span>Offers</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Conversions</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-wallet"></i>
+                    <span>Balance</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-globe"></i>
+                    <span>Domains</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span>News</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-life-ring"></i>
+                    <span>Support</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar">A</div>
+                    <span>AI manager</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Add toggle button for collapsed sidebar -->
+        <button class="sidebar-toggle" id="sidebar-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <span class="balance">Balance: $64.70</span>
+                    <div class="language-selector">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyNCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjE4IiBmaWxsPSIjMDEyMTY5Ii8+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZGRkZGIi8+CjxyZWN0IHk9IjEyIiB3aWR0aD0iMjQiIGhlaWdodD0iNiIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4K" alt="UK Flag">
+                    </div>
+                    <div class="user-profile" id="user-profile">
+                        <div class="user-avatar">A</div>
+                        <span>otir229</span>
+                        <i class="fas fa-chevron-down"></i>
+                        
+                        <!-- Dropdown Menu -->
+                        <div class="profile-dropdown" id="profile-dropdown">
+                            <div class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                <span>Profile Settings</span>
+                            </div>
+                            <div class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Account Settings</span>
+                            </div>
+                            <div class="dropdown-item">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-item logout-item" id="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- KPI Cards -->
+            <section class="kpi-section">
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon hits">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <h3>Hits</h3>
+                            <div class="kpi-value">22.1K</div>
+                            <div class="kpi-change negative">
+                                <i class="fas fa-arrow-down"></i>
+                                -37.4%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon clicks">
+                            <i class="fas fa-mouse-pointer"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <h3>Clicks</h3>
+                            <div class="kpi-value">3.9K</div>
+                            <div class="kpi-change negative">
+                                <i class="fas fa-arrow-down"></i>
+                                -56.4%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon conversions">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <h3>Conversions</h3>
+                            <div class="kpi-value">23</div>
+                            <div class="kpi-change negative">
+                                <i class="fas fa-arrow-down"></i>
+                                -44.2%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon revenue">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <h3>Revenue</h3>
+                            <div class="kpi-value">$90.26</div>
+                            <div class="kpi-change negative">
+                                <i class="fas fa-arrow-down"></i>
+                                -53.9%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h2>Performance</h2>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color uhits"></span>
+                                <span>uHits</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color hits"></span>
+                                <span>Hits</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color clicks"></span>
+                                <span>Clicks</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color revenue"></span>
+                                <span>Revenue</span>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+
+                <div class="news-section">
+                    <div class="news-header">
+                        <h3>Latest news</h3>
+                        <a href="#" class="view-all">View all <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="news-list">
+                        <div class="news-item">
+                            <div class="news-image">
+                                <img src="https://www.trafee.com/publisher/customer_files/trafee/announcements/339/AI-Webnews-686e557d20062.webp" alt="AI Challenge">
+                            </div>
+                            <div class="news-content">
+                                <h4>Fasten your seatbelts — we have a new challenge for you!</h4>
+                                <p>Introducing — AI Appreciation Day Challenge from Trafee! For everyone...</p>
+                                <span class="news-date">4 days ago</span>
+                            </div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-image">
+                                <img src="https://www.trafee.com/publisher/customer_files/trafee/announcements/339/AI-Webnews-686e557d20062.webp" alt="Offers">
+                            </div>
+                            <div class="news-content">
+                                <h4>Once again, we've got some banging offers for you!</h4>
+                                <p>You often ask for something fresh and profitable. Here's a quick update.</p>
+                                <span class="news-date">11 days ago</span>
+                            </div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-image">
+                                <img src="https://www.trafee.com/publisher/customer_files/trafee/announcements/339/AI-Webnews-686e557d20062.webp" alt="Flirting">
+                            </div>
+                            <div class="news-content">
+                                <h4>Attention, Interest, Flirting and... A Little More with New...</h4>
+                                <p>Ready for new opportunities and high earnings? We know how crucial...</p>
+                                <span class="news-date">25 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Table -->
+            <section class="table-section">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Smartlink</th>
+                                <th>Hits <i class="fas fa-info-circle"></i></th>
+                                <th>uHits <i class="fas fa-info-circle"></i></th>
+                                <th>Clicks <i class="fas fa-info-circle"></i></th>
+                                <th>uClicks <i class="fas fa-info-circle"></i></th>
+                                <th>Conversions <i class="fas fa-info-circle"></i></th>
+                                <th>Ratio <i class="fas fa-info-circle"></i></th>
+                                <th>uEPC <i class="fas fa-info-circle"></i></th>
+                                <th>EPM <i class="fas fa-info-circle"></i></th>
+                                <th>Revenue <i class="fas fa-info-circle"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <tr>
+                                <td>Adult dating 1</td>
+                                <td>22149</td>
+                                <td>5978</td>
+                                <td>3897</td>
+                                <td>1308</td>
+                                <td>23</td>
+                                <td>1:57 (2%)</td>
+                                <td>$0.07</td>
+                                <td>$4.080</td>
+                                <td>$90.26</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td><strong>Total</strong></td>
+                                <td><strong>22149</strong></td>
+                                <td><strong>5978</strong></td>
+                                <td><strong>3897</strong></td>
+                                <td><strong>1308</strong></td>
+                                <td><strong>23</strong></td>
+                                <td><strong>1:57 (2%)</strong></td>
+                                <td><strong>$0.07</strong></td>
+                                <td><strong>$4.080</strong></td>
+                                <td><strong>$90.26</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="table-section">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Smartlink</th>
+                                <th>Hits <i class="fas fa-info-circle"></i></th>
+                                <th>uHits <i class="fas fa-info-circle"></i></th>
+                                <th>Clicks <i class="fas fa-info-circle"></i></th>
+                                <th>uClicks <i class="fas fa-info-circle"></i></th>
+                                <th>Conversions <i class="fas fa-info-circle"></i></th>
+                                <th>Ratio <i class="fas fa-info-circle"></i></th>
+                                <th>uEPC <i class="fas fa-info-circle"></i></th>
+                                <th>EPM <i class="fas fa-info-circle"></i></th>
+                                <th>Revenue <i class="fas fa-info-circle"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <tr>
+                                <td>Adult dating 1</td>
+                                <td>22149</td>
+                                <td>5978</td>
+                                <td>3897</td>
+                                <td>1308</td>
+                                <td>23</td>
+                                <td>1:57 (2%)</td>
+                                <td>$0.07</td>
+                                <td>$4.080</td>
+                                <td>$90.26</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td><strong>Total</strong></td>
+                                <td><strong>22149</strong></td>
+                                <td><strong>5978</strong></td>
+                                <td><strong>3897</strong></td>
+                                <td><strong>1308</strong></td>
+                                <td><strong>23</strong></td>
+                                <td><strong>1:57 (2%)</strong></td>
+                                <td><strong>$0.07</strong></td>
+                                <td><strong>$4.080</strong></td>
+                                <td><strong>$90.26</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="common_script.js"></script>
+    <script src="dashboard_chart.js"></script>
+</body>
+</html>

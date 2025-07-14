@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+    <link rel="stylesheet" href="setting_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Settings</h1>
+
+        <div class="tabs">
+            <div class="tabs-list">
+                <button class="tab-trigger active" data-tab="profile">Profile</button>
+                <button class="tab-trigger" data-tab="payment">Payment info</button>
+                <button class="tab-trigger" data-tab="postbacks">Postbacks</button>
+                <button class="tab-trigger" data-tab="referral">Referral info</button>
+            </div>
+
+            <div class="tab-content active" id="profile">
+                <form id="profile-form">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Personal info</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" value="vohungbvepn@gmail.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="account">Account <span class="required">*</span></label>
+                                <input type="text" id="account" name="account" value="@dh24444" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Locale</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label for="timezone">Timezone</label>
+                                <select id="timezone" name="timezone">
+                                    <option value="europe-prague" selected>Europe/Prague (UTC+02:00)</option>
+                                    <option value="america-new-york">America/New_York (UTC-05:00)</option>
+                                    <option value="asia-tokyo">Asia/Tokyo (UTC+09:00)</option>
+                                    <option value="europe-london">Europe/London (UTC+00:00)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="language">Language</label>
+                                <select id="language" name="language">
+                                    <option value="english" selected>🇬🇧 English</option>
+                                    <option value="vietnamese">🇻🇳 Vietnamese</option>
+                                    <option value="spanish">🇪🇸 Spanish</option>
+                                    <option value="french">🇫🇷 French</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Change password</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <div class="input-with-icon">
+                                    <input type="password" id="password" name="password" placeholder="Enter new password">
+                                    <button type="button" class="toggle-password" data-target="password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm password</label>
+                                <div class="input-with-icon">
+                                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password">
+                                    <button type="button" class="toggle-password" data-target="confirm-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="save-profile-btn">Save Changes</button>
+                    </div>
+                    <div id="profile-message" class="message-box"></div>
+                </form>
+            </div>
+
+            <div class="tab-content" id="payment">
+                <div class="payment-header">
+                    <button class="btn btn-orange" id="create-new-payment-btn">Create new</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header-top">
+                            <h2 class="card-title">Payment info</h2>
+                            <span class="badge active-badge">● Active</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-ghost" id="edit-active-payment-btn">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn btn-ghost btn-danger" id="delete-active-payment-btn">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="payment-details-grid">
+                            <div>
+                                <label class="detail-label">Payment method</label>
+                                <p class="detail-value">USDT-trc20</p>
+                            </div>
+                            <div>
+                                <label class="detail-label">Payment account</label>
+                                <p class="detail-value break-all">TLJrWZ826P2qrV4GfhcKMGeUj79JQsuR3</p>
+                            </div>
+                            <div>
+                                <label class="detail-label">Minimal payment amount</label>
+                                <p class="detail-value">100</p>
+                            </div>
+                        </div>
+                        <div class="payment-notice">
+                            <label class="detail-label">Payment notice</label>
+                            <p class="detail-value text-gray">No payment notice set</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">List of inactive accounts</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Payment method</th>
+                                        <th>Payment account</th>
+                                        <th>Payment notice</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inactive-accounts-table-body">
+                                    <!-- Inactive accounts will be rendered here by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="postbacks">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Postbacks</h2>
+                        <p class="card-description">Configure your postback settings</p>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-gray">Postback configuration will be available here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="referral">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Referral info</h2>
+                        <p class="card-description">Manage your referral information</p>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-gray">Referral information will be available here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Method Dialog -->
+    <div class="dialog-overlay" id="payment-method-dialog-overlay">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <h3 class="dialog-title" id="payment-dialog-title">Create New Payment Method</h3>
+                <p class="dialog-description" id="payment-dialog-description">Add a new payment method to your account.</p>
+            </div>
+            <form id="payment-method-form">
+                <input type="hidden" id="payment-id" name="id">
+                <div class="form-group">
+                    <label for="payment-method-select">Payment Method</label>
+                    <select id="payment-method-select" name="method">
+                        <option value="">Select payment method</option>
+                        <option value="USDT-trc20">USDT-TRC20</option>
+                        <option value="USDT-erc20">USDT-ERC20</option>
+                        <option value="BTC">Bitcoin</option>
+                        <option value="ETH">Ethereum</option>
+                        <option value="PayPal">PayPal</option>
+                        <option value="Bank">Bank Transfer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-account">Payment Account</label>
+                    <input type="text" id="payment-account" name="account" placeholder="Enter wallet address or account details" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-min-amount">Minimal Payment Amount</label>
+                    <input type="number" id="payment-min-amount" name="minAmount" placeholder="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-notice">Payment Notice (Optional)</label>
+                    <textarea id="payment-notice" name="notice" placeholder="Add any special instructions..." rows="3"></textarea>
+                </div>
+                <div class="dialog-footer">
+                    <button type="button" class="btn btn-outline" id="cancel-payment-dialog">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="save-payment-btn">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Dialog -->
+    <div class="dialog-overlay" id="delete-confirmation-dialog-overlay">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <h3 class="dialog-title">Delete Payment Method</h3>
+                <p class="dialog-description">
+                    Are you sure you want to delete the payment method "<span id="delete-method-name"></span>"? This action cannot be undone.
+                </p>
+            </div>
+            <div class="dialog-footer">
+                <button type="button" class="btn btn-outline" id="cancel-delete-dialog">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirm-delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="setting_script.js"></script>
+</body>
+</html>

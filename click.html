@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="click.css">
+    
+</head>
+<body>
+    <button class="toggle-data-btn" onclick="toggleData()">Toggle Data</button>
+    
+    <div class="container">
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <h2 class="filters-title">Filters</h2>
+            <div class="filters-row">
+                <div class="filter-group">
+                    <label class="filter-label">Date range</label>
+                    <div class="date-range-group">
+                        <input type="date" id="startDate" class="filter-input" value="2025-07-01">
+                        <span class="date-separator">—</span>
+                        <input type="date" id="endDate" class="filter-input" value="2025-07-30">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Country</label>
+                    <select class="filter-select" id="countryFilter">
+                        <option value="">All countries</option>
+                        <option value="US">United States</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="DE">Germany</option>
+                        <option value="FR">France</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Domain *</label>
+                    <select class="filter-select" id="domainFilter">
+                        <option value="">All Domains</option>
+                        <option value="example.com">example.com</option>
+                        <option value="test.com">test.com</option>
+                        <option value="demo.com">demo.com</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Placement</label>
+                    <select class="filter-select" id="placementFilter">
+                        <option value="">All Placements</option>
+                        <option value="header">Header</option>
+                        <option value="sidebar">Sidebar</option>
+                        <option value="footer">Footer</option>
+                    </select>
+                </div>
+            </div>
+            <div class="buttons-row">
+                <button class="btn btn-primary" onclick="applyFilters()">APPLY</button>
+                <button class="btn btn-secondary" onclick="resetFilters()">RESET</button>
+            </div>
+            <div id="filterStatus" class="filter-status"></div>
+        </div>
+
+        <!-- Group By Section -->
+        <div class="group-by-section">
+            <h2 class="group-by-title">Group by</h2>
+            <div class="group-tabs">
+                <button class="group-tab active" onclick="setActiveTab(this)">DATE</button>
+                <button class="group-tab" onclick="setActiveTab(this)">DOMAIN</button>
+                <button class="group-tab" onclick="setActiveTab(this)">PLACEMENT</button>
+                <button class="group-tab" onclick="setActiveTab(this)">COUNTRY</button>
+                <button class="group-tab" onclick="setActiveTab(this)">DEVICE FORMAT</button>
+                <button class="group-tab" onclick="setActiveTab(this)">OPERATING SYSTEM</button>
+                <button class="group-tab" onclick="setActiveTab(this)">BROWSER</button>
+            </div>
+        </div>
+
+        <!-- Export Section -->
+        <div class="export-section">
+            <button class="export-btn" onclick="exportCSV()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7,10 12,15 17,10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                EXPORT CSV
+            </button>
+        </div>
+
+        <!-- Data Section -->
+        <div class="data-section" id="dataSection">
+            <div id="sortStatus" class="sort-status"></div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th class="sortable" data-column="date" onclick="sortTable('date')">
+                            Date
+                            <span class="sort-icon">
+                                <svg class="sort-icon-default" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4-4 4 4"/>
+                                    <path d="M16 15l-4 4-4-4"/>
+                                </svg>
+                                <svg class="sort-icon-asc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 15l4-4 4 4"/>
+                                </svg>
+                                <svg class="sort-icon-desc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4 4 4-4"/>
+                                </svg>
+                            </span>
+                        </th>
+                        <th class="sortable" data-column="impressions" onclick="sortTable('impressions')">
+                            Impressions
+                            <span class="sort-icon">
+                                <svg class="sort-icon-default" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4-4 4 4"/>
+                                    <path d="M16 15l-4 4-4-4"/>
+                                </svg>
+                                <svg class="sort-icon-asc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 15l4-4 4 4"/>
+                                </svg>
+                                <svg class="sort-icon-desc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4 4 4-4"/>
+                                </svg>
+                            </span>
+                        </th>
+                        <th class="sortable" data-column="clicks" onclick="sortTable('clicks')">
+                            Clicks
+                            <span class="sort-icon">
+                                <svg class="sort-icon-default" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4-4 4 4"/>
+                                    <path d="M16 15l-4 4-4-4"/>
+                                </svg>
+                                <svg class="sort-icon-asc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 15l4-4 4 4"/>
+                                </svg>
+                                <svg class="sort-icon-desc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4 4 4-4"/>
+                                </svg>
+                            </span>
+                        </th>
+                        <th class="sortable" data-column="ctr" onclick="sortTable('ctr')">
+                            CTR
+                            <span class="sort-icon">
+                                <svg class="sort-icon-default" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4-4 4 4"/>
+                                    <path d="M16 15l-4 4-4-4"/>
+                                </svg>
+                                <svg class="sort-icon-asc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 15l4-4 4 4"/>
+                                </svg>
+                                <svg class="sort-icon-desc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4 4 4-4"/>
+                                </svg>
+                            </span>
+                        </th>
+                        <th class="sortable" data-column="cpm" onclick="sortTable('cpm')">
+                            CPM
+                            <span class="sort-icon">
+                                <svg class="sort-icon-default" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4-4 4 4"/>
+                                    <path d="M16 15l-4 4-4-4"/>
+                                </svg>
+                                <svg class="sort-icon-asc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 15l4-4 4 4"/>
+                                </svg>
+                                <svg class="sort-icon-desc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4 4 4-4"/>
+                                </svg>
+                            </span>
+                        </th>
+                        <th class="sortable" data-column="revenue" onclick="sortTable('revenue')">
+                            Revenue
+                            <span class="sort-icon">
+                                <svg class="sort-icon-default" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4-4 4 4"/>
+                                    <path d="M16 15l-4 4-4-4"/>
+                                </svg>
+                                <svg class="sort-icon-asc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 15l4-4 4 4"/>
+                                </svg>
+                                <svg class="sort-icon-desc" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 9l4 4 4-4"/>
+                                </svg>
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="dataTableBody">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+            
+            <div id="noDataMessage" class="no-data">
+                <div class="no-data-title">No data.</div>
+                <div class="no-data-subtitle">Check your filters, adjust the date range, or add a traffic source</div>
+            </div>
+
+            <div class="pagination">
+                <div class="pagination-controls">
+                    <span>Rows per page:</span>
+                    <select id="rowsPerPage" onchange="changeRowsPerPage()">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <div id="paginationInfo">0–0 of 0</div>
+                <div class="pagination-nav">
+                    <button class="pagination-btn" id="prevBtn" onclick="previousPage()" disabled>‹</button>
+                    <button class="pagination-btn" id="nextBtn" onclick="nextPage()" disabled>›</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="help-text">
+            For more information about how to use statistics see our Help Center
+        </div>
+    </div>
+
+    <script src="click.js"></script>
+</body>
+</html>
