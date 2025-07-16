@@ -87,7 +87,39 @@ function initDropdownItems() {
   })
 }
 
+function initSidebar() {
+  const collapseBtn = document.querySelector(".collapse-btn")
+  const sidebar = document.querySelector(".sidebar")
+  const mainContent = document.querySelector(".main-content")
+  const sidebarToggle = document.getElementById("sidebar-toggle")
+
+  collapseBtn.addEventListener("click", () => {
+    sidebar.classList.add("collapsed")
+    mainContent.classList.add("expanded")
+    sidebarToggle.classList.add("visible")
+  })
+
+  sidebarToggle.addEventListener("click", () => {
+    sidebar.classList.remove("collapsed")
+    mainContent.classList.remove("expanded")
+    sidebarToggle.classList.remove("visible")
+  })
+}
+
+
+function initNavItems(){
+  const navItems = document.querySelectorAll(".nav-item");
+  navItems.forEach(item => {
+    item.addEventListener('click', function(){
+      navItems.forEach(i => i.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initProfileDropdown()
   initDropdownItems()
+  initSidebar()
+  initNavItems()
 })

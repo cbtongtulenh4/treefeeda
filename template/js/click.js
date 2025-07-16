@@ -1,7 +1,7 @@
-let hasData = false;
+let hasData = true;
 let currentPage = 1;
 let rowsPerPage = 10;
-let filteredData = [];
+// let filteredData = [];
 let originalData = [];
 let currentSort = { column: null, direction: null };
 
@@ -38,6 +38,8 @@ const allFakeData = [
     { date: '2025-07-29', impressions: 18765, clicks: 387, ctr: '2.06%', cpm: '$3.01', revenue: '$56.48', country: 'US', domain: 'test.com', placement: 'sidebar' },
     { date: '2025-07-30', impressions: 13678, clicks: 267, ctr: '1.95%', cpm: '$2.45', revenue: '$33.51', country: 'UK', domain: 'demo.com', placement: 'footer' }
 ];
+
+let filteredData = allFakeData;
 
 function toggleData() {
     hasData = !hasData;

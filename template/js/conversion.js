@@ -1053,25 +1053,7 @@ function initPagination() {
   })
 }
 
-// Update the sidebar collapse functionality
-function initSidebar() {
-  const collapseBtn = document.querySelector(".collapse-btn")
-  const sidebar = document.querySelector(".sidebar")
-  const mainContent = document.querySelector(".main-content")
-  const sidebarToggle = document.getElementById("sidebar-toggle")
 
-  collapseBtn.addEventListener("click", () => {
-    sidebar.classList.add("collapsed")
-    mainContent.classList.add("expanded")
-    sidebarToggle.classList.add("visible")
-  })
-
-  sidebarToggle.addEventListener("click", () => {
-    sidebar.classList.remove("collapsed")
-    mainContent.classList.remove("expanded")
-    sidebarToggle.classList.remove("visible")
-  })
-}
 
 // Add initSidebar to the DOMContentLoaded event
 document.addEventListener("DOMContentLoaded", () => {
@@ -1080,7 +1062,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initDropdownItems()
   initSorting()
   initPagination()
-  initSidebar() // Add this line
 
   // Add event listeners
   document.querySelector(".refresh-btn").addEventListener("click", handleRefresh)
