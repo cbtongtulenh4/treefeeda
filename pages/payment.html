@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treefeed</title>
     <link rel="stylesheet" href="../template/css/common.css">
+    <link rel="stylesheet" href="../template/css/payment.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -101,11 +102,125 @@
 
             <!-- Page Content -->
             <div class="page-content">
-                
+                <div class="title-header">
+                    <h1>Payment</h1>
+                </div>
+
+                <div class="payments-section">
+                    <div class="section-header">
+                        <div class="section-title">Payments</div>
+                        <div class="date-filter">
+                            <input type="date" class="date-input" value="2024-09-05">
+                            <span>-</span>
+                            <input type="date" class="date-input" value="2025-07-14">
+                            <button class="refresh-btn">
+                                🔄 Refresh
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date range</th>
+                                    <th>Method</th>
+                                    <th>Note</th>
+                                    <th>Amount</th>
+                                    <th>Commission</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2025-05-26 00:00 - 2025-06-16 00:00</td>
+                                    <td>USDT-trc20</td>
+                                    <td>-</td>
+                                    <td class="amount">$104.64</td>
+                                    <td>$0.00</td>
+                                    <td>
+                                        <span class="status">
+                                            <span class="status-dot"></span>
+                                            Paid
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="actions-btn">⋮</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2025-05-09 17:39 - 2025-05-26 00:00</td>
+                                    <td>USDT-trc20</td>
+                                    <td>-</td>
+                                    <td class="amount">$109.32</td>
+                                    <td>$0.00</td>
+                                    <td>
+                                        <span class="status">
+                                            <span class="status-dot"></span>
+                                            Paid
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="actions-btn">⋮</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2025-04-15 08:22 - 2025-05-09 17:39</td>
+                                    <td>PayPal</td>
+                                    <td>Monthly subscription</td>
+                                    <td class="amount">$89.99</td>
+                                    <td>$2.70</td>
+                                    <td>
+                                        <span class="status">
+                                            <span class="status-dot"></span>
+                                            Paid
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="actions-btn">⋮</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2025-03-28 14:15 - 2025-04-15 08:22</td>
+                                    <td>Stripe</td>
+                                    <td>Service fee</td>
+                                    <td class="amount">$156.78</td>
+                                    <td>$4.70</td>
+                                    <td>
+                                        <span class="status">
+                                            <span class="status-dot"></span>
+                                            Paid
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="actions-btn">⋮</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2025-03-10 11:30 - 2025-03-28 14:15</td>
+                                    <td>USDT-trc20</td>
+                                    <td>Withdrawal</td>
+                                    <td class="amount">$234.56</td>
+                                    <td>$0.00</td>
+                                    <td>
+                                        <span class="status">
+                                            <span class="status-dot"></span>
+                                            Paid
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="actions-btn">⋮</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
 
     <script src="../template/js/common.js"></script>
+    <script src="../template/js/payment.js"></script>
 </body>
 </html>
